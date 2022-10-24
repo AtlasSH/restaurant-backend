@@ -1,0 +1,28 @@
+{
+	"test": ".*.ts$",
+	"jsc": {
+		"target": "es2020",
+		"parser": {
+			"syntax": "typescript",
+			"tsx": true,
+			"decorators": true,
+			"dynamicImport": true
+		},
+		"baseUrl": "./src",
+		"paths": {
+			"@src/*": ["*"],
+			"@module/*": ["module/*"],
+			"@infra/*": ["infra/*"],
+			"@core/*": ["core/*"]
+		},
+		"minify": {
+			"compress": {
+				"unused": true
+			},
+			"mangle": false
+		}
+	},
+	"module": {
+		"type": "commonjs"
+	}
+}

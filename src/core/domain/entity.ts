@@ -24,11 +24,11 @@ export abstract class Entity<Props extends IBaseDomainEntity> {
   }
 
   get createdAt(): Date {
-    return this.props.createdAt ?? new Date();
+    return this.props.createdAt;
   }
 
   get updatedAt(): Date {
-    return this.props.updatedAt ?? new Date();
+    return this.props.updatedAt;
   }
 
   get isDeleted(): boolean {
