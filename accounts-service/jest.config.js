@@ -4,7 +4,7 @@ module.exports = {
   },
   extensionsToTreatAsEsm: ['.ts', '.tsx'],
 
-  collectCoverage: true,
+  collectCoverage: false,
   coverageDirectory: 'coverage',
   collectCoverageFrom: [
     'src/core/**/*.ts',
