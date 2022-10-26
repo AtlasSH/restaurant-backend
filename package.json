@@ -1,0 +1,17 @@
+{
+  "name": "restaurant",
+  "private": true,
+  "author": "Carlos Eduardo M. Freitas <carlos@freitas.eti.br>",
+  "license": "MIT",
+  "workspaces": ["packages/*"],
+  "devDependencies": {
+    "lerna": "^6.0.1",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.0.0",
+    "eslint": "^8.0.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.3.2",
+    "typescript": "^4.7.4"
+  }
+}
