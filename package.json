@@ -3,14 +3,21 @@
   "private": true,
   "author": "Carlos Eduardo M. Freitas <carlos@freitas.eti.br>",
   "license": "MIT",
-  "workspaces": ["packages/*"],
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "bootstrap": "lerna bootstrap",
+    "start:accounts": "npm run start:dev --prefix packages/accounts-service",
+    "test": "lerna run --stream --parallel test"
+  },
   "devDependencies": {
-    "lerna": "^6.0.1",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "@typescript-eslint/parser": "^5.0.0",
     "eslint": "^8.0.1",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
+    "lerna": "^6.0.1",
     "prettier": "^2.3.2",
     "typescript": "^4.7.4"
   }

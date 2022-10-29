@@ -1,17 +1,11 @@
 module.exports = {
-  transform: {
-    '^.+\\.(t|j)sx?$': ['@swc/jest'],
-  },
-  extensionsToTreatAsEsm: ['.ts', '.tsx'],
+  preset: '../../jest.base.js',
 
-  collectCoverage: false,
   coverageDirectory: 'coverage',
+  coveragePathIgnorePatterns: ['infra/db'],
   collectCoverageFrom: [
     'src/core/**/*.ts',
     'src/infra/**/*.ts',
     'src/modules/**/*.ts',
   ],
-  coveragePathIgnorePatterns: ['infra/db'],
-
-  testMatch: ['**/*.spec.ts'],
 };

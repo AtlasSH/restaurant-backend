@@ -10,7 +10,6 @@
 		},
 		"baseUrl": "./src",
 		"paths": {
-			"@src/*": ["*"],
 			"@module/*": ["module/*"],
 			"@infra/*": ["infra/*"],
 			"@core/*": ["core/*"]
