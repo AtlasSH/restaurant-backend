@@ -1,4 +1,4 @@
-import UniqueEntityID from './unique-entity-id';
+import { UniqueEntityID } from './unique-entity-id';
 
 const isValueObject = (v: any): v is ValueObject<any> => {
   return v instanceof ValueObject;
@@ -10,7 +10,7 @@ export abstract class ValueObject<Props> {
 
   constructor(props: Props, id?: UniqueEntityID) {
     this._id = id ? id : new UniqueEntityID();
-    this.props = Object.freeze(props);
+    this.props = props;
   }
 
   get id(): UniqueEntityID {
