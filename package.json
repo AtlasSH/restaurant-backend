@@ -9,7 +9,7 @@
   "scripts": {
     "bootstrap": "lerna bootstrap",
     "start:accounts": "npm run start:dev --prefix packages/accounts-service",
-    "test": "lerna run --stream --parallel test"
+    "test": "lerna run --stream --parallel test --"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.0.0",
