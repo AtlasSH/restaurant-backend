@@ -6,11 +6,7 @@ on:
 
 jobs:
   OS:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [macos-latest, windows-latest, ubuntu-latest]
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout branch
@@ -25,10 +21,12 @@ jobs:
         run: npm run bootstrap
 
       - name: Type checks
-        if: matrix.os == 'ubuntu-latest'
         run: npm run type-check
 
       - name: Run tests
-        uses: mattallty/jest-github-action@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npm run test --coverage
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
