@@ -1,5 +1,0 @@
-flag_management:
-  individual_flags:
-    - name: accounts-service
-      paths:
-        - packages/accounts-service
