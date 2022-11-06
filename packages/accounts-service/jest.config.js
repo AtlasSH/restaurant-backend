@@ -7,5 +7,6 @@ module.exports = {
     'src/core/**/*.ts',
     'src/infra/**/*.ts',
     'src/modules/**/*.ts',
+    'src/utils/**/*.ts',
   ],
 };

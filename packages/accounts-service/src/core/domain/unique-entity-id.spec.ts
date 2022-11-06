@@ -1,6 +1,6 @@
 import { validate } from 'uuid';
 
-import UniqueEntityID from './unique-entity-id';
+import { UniqueEntityID } from './unique-entity-id';
 
 describe('Domain - UniqueEntityID', () => {
   it('should create a new UUID if not provided', () => {

@@ -7,6 +7,7 @@
       "@core/*": ["core/*"],
       "@infra/*": ["infra/*"],
       "@modules/*": ["modules/*"],
+      "@utils/*": ["utils/*"],
     }
   }
 }

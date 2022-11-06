@@ -1,6 +1,6 @@
 import { IBaseDomainEntity } from '@core/infra/protocols/layer/base-entity.interface';
 
-import UniqueEntityID from './unique-entity-id';
+import { UniqueEntityID } from './unique-entity-id';
 
 const isEntity = (v: any): v is Entity<any> => {
   return v instanceof Entity;

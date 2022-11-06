@@ -12,7 +12,8 @@
 		"paths": {
 			"@module/*": ["module/*"],
 			"@infra/*": ["infra/*"],
-			"@core/*": ["core/*"]
+			"@core/*": ["core/*"],
+			"@utils/*": ["utils/*"]
 		},
 		"minify": {
 			"compress": {
