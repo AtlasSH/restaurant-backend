@@ -1,0 +1,34 @@
+name: Test
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  OS:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-latest, windows-latest, ubuntu-latest]
+
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+
+      - name: Bootstrap packages
+        run: npm run bootstrap
+
+      - name: Type checks
+        if: matrix.os == 'ubuntu-latest'
+        run: npm run type-check
+
+      - name: Run tests
+        uses: mattallty/jest-github-action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
