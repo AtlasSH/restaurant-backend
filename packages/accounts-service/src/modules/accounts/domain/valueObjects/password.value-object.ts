@@ -2,6 +2,7 @@ import { compareSync, genSaltSync, hashSync } from 'bcrypt';
 
 import { ValueObject } from '@core/domain';
 import { Either, left, right } from '@core/logic/either';
+
 import { InvalidPasswordLengthError } from '../errors/InvalidPasswordLengthError';
 
 export class Password extends ValueObject<PasswordProps> {
@@ -47,7 +48,10 @@ export class Password extends ValueObject<PasswordProps> {
     return true;
   }
 
-  static create(value: string, isHashed = false): Either<Error, Password> {
+  static create(
+    value: string,
+    isHashed = false,
+  ): Either<InvalidPasswordLengthError, Password> {
     if (!isHashed && !this.validateLength(value)) {
       return left(
         new InvalidPasswordLengthError(
