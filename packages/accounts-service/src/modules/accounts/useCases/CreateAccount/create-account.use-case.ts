@@ -1,3 +1,5 @@
+import { Inject } from '@nestjs/common';
+
 import { combine, left, right } from '@core/logic/either';
 import { AccountAggregate } from '@modules/accounts/domain/aggregates/account.aggregate';
 
@@ -14,7 +16,10 @@ import {
 } from './create-account.dto';
 
 export class CreateAccountUseCase implements ICreateAccountUseCase {
-  constructor(private readonly accountRepository: IAccountRepository) {}
+  constructor(
+    @Inject('AccountRepository')
+    private readonly accountRepository: IAccountRepository,
+  ) {}
 
   async execute({
     document,

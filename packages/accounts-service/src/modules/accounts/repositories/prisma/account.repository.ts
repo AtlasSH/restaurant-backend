@@ -1,3 +1,5 @@
+import { Injectable } from '@nestjs/common';
+
 import { PrismaService } from '@infra/db/prisma/prisma.service';
 
 import { AccountAggregate } from '../../domain/aggregates/account.aggregate';
@@ -7,7 +9,8 @@ import { AccountMapper } from '../../mappers/account.mapper';
 
 import { IAccountRepository } from '../account.repository.interface';
 
-export class AccountRepository implements IAccountRepository {
+@Injectable()
+export class PrismaAccountRepository implements IAccountRepository {
   constructor(private readonly prisma: PrismaService) {}
 
   async findById(id: string): Promise<AccountAggregate> {
