@@ -3,12 +3,13 @@
   "private": true,
   "author": "Carlos Eduardo M. Freitas <carlos@freitas.eti.br>",
   "license": "MIT",
-  "workspaces": [
-    "packages/*"
-  ],
+  "workspaces": {
+    "packages": ["packages/*"],
+    "nohoist": ["**/@nestjs", "**/@nestjs/**"]
+  },
   "scripts": {
     "bootstrap": "lerna bootstrap",
-    "start:accounts": "npm run start:dev --prefix packages/accounts-service",
+    "start:dev": "lerna run start:dev",
     "test": "lerna run --stream --parallel test --",
     "type-check": "lerna run type-check"
   },
