@@ -13,7 +13,7 @@ class AccountMapper {
 
     const hasErrorOnValueObjects = combine([documentOrError, passwordOrError]);
 
-    if (hasErrorOnValueObjects.isLeft) {
+    if (hasErrorOnValueObjects.isLeft()) {
       throw hasErrorOnValueObjects.value;
     }
 
