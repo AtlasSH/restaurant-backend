@@ -18,6 +18,12 @@ describe('Domain - ValueObject', () => {
     expect(valueObject.id.value).toEqual('custom-id');
   });
 
+  it('should not set an ID if provided as null', () => {
+    const valueObject = new CustomVO({}, null);
+
+    expect(valueObject.id).toBeNull();
+  });
+
   it('should be able to check equality', () => {
     const valueObjectOne = new CustomVO({}, new UniqueEntityID('same-id'));
     const valueObjectTwo = new CustomVO({}, new UniqueEntityID('same-id'));

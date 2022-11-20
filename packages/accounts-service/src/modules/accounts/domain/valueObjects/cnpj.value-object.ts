@@ -16,7 +16,7 @@ export class CNPJ extends ValueObject<CNPJProps> {
   protected static readonly REGEX = regexCnpj;
 
   private constructor(props: CNPJProps) {
-    super(props);
+    super(props, null);
     this.removeSpecialChars();
   }
 

@@ -8,8 +8,13 @@ export abstract class ValueObject<Props> {
   protected readonly _id: UniqueEntityID;
   public readonly props: Props;
 
-  constructor(props: Props, id?: UniqueEntityID) {
-    this._id = id ? id : new UniqueEntityID();
+  constructor(props: Props, id?: UniqueEntityID | null) {
+    if (id === null) {
+      this._id = null;
+    } else {
+      this._id = id || new UniqueEntityID();
+    }
+
     this.props = props;
   }
 

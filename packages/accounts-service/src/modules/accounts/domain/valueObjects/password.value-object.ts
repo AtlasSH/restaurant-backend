@@ -6,12 +6,12 @@ import { Either, left, right } from '@core/logic/either';
 import { InvalidPasswordLengthError } from '../errors/InvalidPasswordLengthError';
 
 export class Password extends ValueObject<PasswordProps> {
-  private readonly isEncrypted: boolean;
+  private isEncrypted: boolean;
   private static readonly MAX_LENGTH = 22;
   private static readonly MIN_LENGTH = 5;
 
   private constructor(props: PasswordProps, isEncrypted: boolean) {
-    super(props);
+    super(props, null);
     this.isEncrypted = isEncrypted;
   }
 
@@ -34,7 +34,10 @@ export class Password extends ValueObject<PasswordProps> {
 
     const salt = genSaltSync();
 
-    return hashSync(this.props.value, salt);
+    this.isEncrypted = true;
+    this.props.value = hashSync(this.props.value, salt);
+
+    return this.value;
   }
 
   private static validateLength(password: string): boolean {

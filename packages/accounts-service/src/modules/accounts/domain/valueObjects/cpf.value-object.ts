@@ -16,7 +16,7 @@ export class CPF extends ValueObject<CPFProps> {
   protected static readonly REGEX = regexCpf;
 
   private constructor(props: CPFProps) {
-    super(props);
+    super(props, null);
     this.removeSpecialChars();
   }
 
