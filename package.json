@@ -12,7 +12,8 @@
     "start:dev": "lerna run start:dev",
     "test": "lerna run --stream --parallel test --",
     "test:coverage": "yarn test --coverage",
-    "type-check": "lerna run type-check"
+    "type-check": "lerna run type-check",
+    "lint": "lerna run lint"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.0.0",
