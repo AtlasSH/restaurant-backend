@@ -6,7 +6,11 @@ type CreateAccountUseCaseDTO = {
   password: string;
 };
 
-type CreateAccountResult = Either<Error, void>;
+type AccountResult = {
+  id: string;
+};
+
+type CreateAccountResult = Either<Error, AccountResult>;
 
 type ICreateAccountUseCase = IUseCase<
   CreateAccountUseCaseDTO,

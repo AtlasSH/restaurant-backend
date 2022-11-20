@@ -1,10 +1,11 @@
 import { Inject } from '@nestjs/common';
 
 import { combine, left, right } from '@core/logic/either';
-import { AccountAggregate } from '@modules/accounts/domain/aggregates/account.aggregate';
 
 import { CNPJ, CPF, Password } from '../../domain/valueObjects';
 import { DocumentFactory } from '../../factories/document.factory';
+import { AccountAggregate } from '../../domain/aggregates/account.aggregate';
+
 import { IAccountRepository } from '../../repositories/account.repository.interface';
 
 import { AccountAlreadyExistsError } from './errors/AccountAlreadyExistsError';
@@ -34,21 +35,21 @@ export class CreateAccountUseCase implements ICreateAccountUseCase {
       return left(hasErrorOnValueObjects.value);
     }
 
-    const userAlreadyExists = await this.accountRepository.findByDocument(
+    const accountAlreadyExists = await this.accountRepository.findByDocument(
       documentOrError.value as CPF | CNPJ,
     );
 
-    if (userAlreadyExists) {
+    if (accountAlreadyExists) {
       return left(new AccountAlreadyExistsError());
     }
 
-    const accountOrError = AccountAggregate.create({
+    const account = AccountAggregate.create({
       document: documentOrError.value as CPF | CNPJ,
       password: passwordOrError.value as Password,
     });
 
-    await this.accountRepository.save(accountOrError);
+    await this.accountRepository.save(account);
 
-    return right(undefined);
+    return right({ id: account.id.value });
   }
 }
