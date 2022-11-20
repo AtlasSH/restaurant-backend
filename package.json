@@ -11,6 +11,7 @@
     "bootstrap": "lerna bootstrap",
     "start:dev": "lerna run start:dev",
     "test": "lerna run --stream --parallel test --",
+    "test:coverage": "yarn test --coverage",
     "type-check": "lerna run type-check"
   },
   "devDependencies": {

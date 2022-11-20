@@ -14,6 +14,17 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+
+      - name: Bootstrap packages
+        run: npm run bootstrap
+
+      - name: Run tests coverage
+        run: npm run test:coverage
+
       - name: SonarCloud Scan
         uses: sonarsource/sonarcloud-github-action@master
         env:
