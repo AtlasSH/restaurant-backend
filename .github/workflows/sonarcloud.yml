@@ -20,10 +20,10 @@ jobs:
           node-version-file: '.nvmrc'
 
       - name: Bootstrap packages
-        run: npm run bootstrap
+        run: yarn bootstrap
 
       - name: Run tests coverage
-        run: npm run test:coverage
+        run: yarn test:coverage
 
       - name: SonarCloud Scan
         uses: sonarsource/sonarcloud-github-action@master
