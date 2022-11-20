@@ -20,8 +20,9 @@ jobs:
       - name: Bootstrap packages
         run: yarn bootstrap
 
+      - name: Lint
+        run: yarn lint
+
       - name: Type checks
         run: yarn type-check
 
-      - name: Lint
-        run: yarn lint
