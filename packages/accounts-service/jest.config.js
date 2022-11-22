@@ -2,11 +2,13 @@ module.exports = {
   preset: '../../jest.base.js',
 
   coverageDirectory: 'coverage',
-  coveragePathIgnorePatterns: ['infra/db'],
   collectCoverageFrom: [
     'src/core/**/*.ts',
-    'src/infra/**/*.ts',
-    'src/modules/**/*.ts',
+    'src/modules/**/domain/**/*.ts',
+    'src/modules/**/factories/**/*.ts',
+    'src/modules/**/useCases/**/*.ts',
+    '!src/modules/**/useCases/**/errors/*.ts',
+    'src/modules/**/mappers/*.ts',
     'src/utils/**/*.ts',
   ],
 };

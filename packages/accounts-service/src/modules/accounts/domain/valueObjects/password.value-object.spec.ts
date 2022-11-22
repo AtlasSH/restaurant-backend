@@ -29,6 +29,15 @@ describe('Value Object - Password', () => {
     expect(isEqualPassword).toBeTruthy();
   });
 
+  it('should return a encrypted password if already encrypted', () => {
+    const encryptedPass = hashSync('123ABC', 10);
+    const password = Password.create(encryptedPass, true).value as Password;
+
+    const hashedPassword = password.getHashedValue();
+
+    expect(hashedPassword).toEqual(encryptedPass);
+  });
+
   it('should reject a password when the length is less than 5', () => {
     const password = Password.create('1234');
 

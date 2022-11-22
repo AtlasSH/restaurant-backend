@@ -1,4 +1,7 @@
 import { UniqueEntityID } from '@core/domain';
+
+import { InvalidCnpjStructureError } from '../domain/errors/InvalidCnpjStructureError';
+
 import {
   AccountAggregate,
   AccountAggregateProps,
@@ -41,6 +44,21 @@ describe('Mapper - Account', () => {
       createdAt: account.createdAt,
       updatedAt: account.updatedAt,
     });
+  });
+
+  it('should throw an error if it fails to create the domain', () => {
+    const { props } = makeAccount();
+
+    const account = () =>
+      AccountMapper.toDomain({
+        id: 'any_id',
+        document: 'invalid-document',
+        password: props.password.getHashedValue(),
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      });
+
+    expect(account).toThrowError(InvalidCnpjStructureError);
   });
 
   const makeAccount = () => {
