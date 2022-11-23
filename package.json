@@ -4,8 +4,13 @@
   "author": "Carlos Eduardo M. Freitas <carlos@freitas.eti.br>",
   "license": "MIT",
   "workspaces": {
-    "packages": ["packages/*"],
-    "nohoist": ["**/@nestjs", "**/@nestjs/**"]
+    "packages": [
+      "packages/*"
+    ],
+    "nohoist": [
+      "**/@nestjs",
+      "**/@nestjs/**"
+    ]
   },
   "scripts": {
     "bootstrap": "lerna bootstrap",
@@ -16,6 +21,7 @@
     "lint": "lerna run lint --stream --no-bail"
   },
   "devDependencies": {
+    "@casualbot/jest-sonar-reporter": "^2.2.5",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "@typescript-eslint/parser": "^5.0.0",
     "eslint": "^8.0.1",
