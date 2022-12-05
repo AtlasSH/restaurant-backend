@@ -1,4 +1,4 @@
-name: Test
+name: Type-check and Lint
 
 on:
   pull_request:
@@ -18,10 +18,11 @@ jobs:
           node-version-file: '.nvmrc'
 
       - name: Bootstrap packages
-        run: npm run bootstrap
+        run: yarn bootstrap
+
+      - name: Lint
+        run: yarn lint
 
       - name: Type checks
-        run: npm run type-check
+        run: yarn type-check
 
-      - name: Run tests
-        run: npm run test
